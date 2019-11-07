@@ -56,7 +56,7 @@ public class Login {
 		capability = new DesiredCapabilities();
 		capability.setCapability("idleTimeout", 300);
 		options.merge(capability);
-		System.setProperty("webdriver.chrome.driver", "D:\\PEG-Automation\\peg-automation\\drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\eclipse\\eclipse\\OvenStory_Trial\\chromedriver.exe");
 		driver = new ChromeDriver(options);
 		return driver;
 	}
