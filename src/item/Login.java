@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.aventstack.extentreports.model.Test;
+
 public class Login {
 	private static WebDriver driver;
 
@@ -20,7 +22,7 @@ public class Login {
 		//Search for 'Bhandup West' in Location field
 		Search objSearch = new Search(driver);
 		objSearch.searchLocation("Bhandup West");
-		
+				
 		//Clicking 'Add' button of first item
 		Collections objColl = new Collections(driver);
 		objColl.selectItem();
@@ -56,7 +58,7 @@ public class Login {
 		capability = new DesiredCapabilities();
 		capability.setCapability("idleTimeout", 300);
 		options.merge(capability);
-		System.setProperty("webdriver.chrome.driver", "D:\\eclipse\\eclipse\\OvenStory_Trial\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chromedriver.exe");
 		driver = new ChromeDriver(options);
 		return driver;
 	}

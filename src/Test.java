@@ -5,20 +5,22 @@ import org.openqa.selenium.WebDriver;
 
 public class Test {
 	
-	private static WebDriver driver;
+	private  WebDriver driver;
 	
-	public static void main(String args[])
-    {
-    	System.out.println("kll");
-    }
+	public Test (WebDriver driver) {
+		this.driver = driver;
+	}
 	
 	private void Navigatesub()
 	{
 		
 		driver.findElement(By.xpath("//a[@class='headerIcon']")).click();
 		driver.findElement(By.xpath("//li[@class='sidebarLink']//a[@href='/collections']")).click();
+		driver.findElement(By.xpath("//a[@class='headerIcon']")).click();
 		driver.findElement(By.xpath("//li[@class='sidebarLink']//a[@href='/party-orders']")).click();
+		driver.findElement(By.xpath("//a[@class='headerIcon']")).click();
 		driver.findElement(By.xpath("//li[@class='sidebarLink']//a[@href='/terms']")).click();
+		driver.findElement(By.xpath("//a[@class='headerIcon']")).click();
 		driver.findElement(By.xpath("//li[@class='sidebarLink']//a[@href='/privacy']")).click();
 	}
 	
