@@ -1,9 +1,18 @@
-package item;
+package OvenFramework;
+
+import java.util.HashMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonActions {
 	
@@ -26,4 +35,13 @@ public class CommonActions {
 		scroll_into_view_element(driver.findElement(objElem));
 		driver.findElement(objElem).click();
 	}
+	
+	public WebElement waitForElement(By objElem) throws InterruptedException {
+		WebElement obj = null;
+		WebDriverWait objWait = new WebDriverWait(driver,240);
+		obj = objWait.until(ExpectedConditions.visibilityOf(driver.findElement(objElem)));
+		Thread.sleep(3000);
+		return obj;
+	}
+
 }

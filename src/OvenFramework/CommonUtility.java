@@ -1,45 +1,25 @@
-package item;
+package OvenFramework;
 
 import java.util.HashMap;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import com.aventstack.extentreports.model.Test;
-
-public class Login {
-	private static WebDriver driver;
-
-	public static void main(String[] args) throws InterruptedException {
-		
-		//Navigate to 'https://www.ovenstory.in'
-		getDriver().get("https://www.ovenstory.in");
-		
-		//Search for 'Bhandup West' in Location field
-		Search objSearch = new Search(driver);
-		objSearch.searchLocation("Bhandup West");
-				
-		//Clicking 'Add' button of first item
-		Collections objColl = new Collections(driver);
-		objColl.selectItem();
-		
-		//Customize item 
-		Customize objCustomize = new Customize(driver);
-		objCustomize.customizeItem();
-		
-		//Click on 'SAVE' button
-		objColl.saveSelection();
+public class CommonUtility {
 	
-		//Click on Checkout button
-		Cart objCart = new Cart(driver);
-		objCart.checkOut();
+	protected WebDriver driver;
+	
+	public CommonUtility() {
 	}
 
-	public static WebDriver getDriver() {
+	public WebDriver getDriver() {
 		/** Browser Capabilities Instance */
 		DesiredCapabilities capability;
 
@@ -62,5 +42,4 @@ public class Login {
 		driver = new ChromeDriver(options);
 		return driver;
 	}
-	
 }
